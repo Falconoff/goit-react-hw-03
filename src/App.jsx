@@ -4,6 +4,9 @@ import initContacts from './initialContacts.json';
 
 import ContactList from './components/ContactList/ContactList';
 import SearchBox from './components/SearchBox/SearchBox';
+import ContactForm from './components/ContactForm/ContactForm';
+
+import { nanoid } from 'nanoid';
 
 import './App.css';
 
@@ -15,11 +18,19 @@ function App() {
     contact.name.toLowerCase().includes(search.toLowerCase())
   );
 
+  const addContact = newContact => {
+    const finalNewContact = {
+      ...newContact,
+      id: nanoid(),
+    };
+    setContacts(prevContacts => [...prevContacts, finalNewContact]);
+  };
+
   return (
     <div>
       <h1>Phonebook</h1>
       <p>{search} </p>
-      {/* <ContactForm /> */}
+      <ContactForm addContact={addContact} />
       <SearchBox value={search} onSearch={setSearch} />
       <ContactList contacts={filteredContacts} />
     </div>
