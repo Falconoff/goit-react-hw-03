@@ -1,8 +1,7 @@
 import css from './ContactItem.module.css';
 import { FaPhone, FaUser } from 'react-icons/fa6';
 
-const ContactItem = ({ name, number }) => {
-  // console.log('ContactItem');
+const ContactItem = ({ name, number, id, onDeleteContact }) => {
   return (
     <div className={css.wrapper}>
       <div className={css.data}>
@@ -15,8 +14,17 @@ const ContactItem = ({ name, number }) => {
           Phone: {number}
         </p>
       </div>
+
       <div className={css.options}>
-        <button className={css.btn}>Delete</button>
+        <button
+          type="button"
+          className={css.btn}
+          onClick={() => {
+            onDeleteContact(id);
+          }}
+        >
+          Delete
+        </button>
       </div>
     </div>
   );

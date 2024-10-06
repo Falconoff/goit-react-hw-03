@@ -1,9 +1,7 @@
 import css from './ContactList.module.css';
 import ContactItem from '../ContactItem/ContactItem';
 
-const ContactList = ({ contacts }) => {
-  console.log('ContactList it`s ', contacts);
-  // ContactItem
+const ContactList = ({ contacts, onDeleteContact }) => {
   return (
     <div className={css.wrapper}>
       {contacts.map(contact => {
@@ -13,11 +11,10 @@ const ContactList = ({ contacts }) => {
             id={contact.id}
             name={contact.name}
             number={contact.number}
+            onDeleteContact={onDeleteContact}
           />
         );
       })}
-
-      <h2>nothing</h2>
     </div>
   );
 };

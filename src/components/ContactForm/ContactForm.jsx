@@ -1,6 +1,6 @@
 import css from './ContactForm.module.css';
 
-const ContactForm = ({ addContact }) => {
+const ContactForm = ({ onAddContact }) => {
   const handleSubmit = evt => {
     evt.preventDefault();
     const formEls = evt.currentTarget.elements;
@@ -9,8 +9,8 @@ const ContactForm = ({ addContact }) => {
 
     const formData = { name, number };
 
-    console.log('formData: ', formData);
-    addContact(formData);
+    onAddContact(formData);
+    evt.currentTarget.reset();
   };
 
   return (
