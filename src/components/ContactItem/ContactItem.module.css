@@ -4,6 +4,7 @@
   justify-content: space-between;
 
   padding: 10px;
+  margin-bottom: 10px;
 
   border-radius: 8px;
   border: 2px solid black;
@@ -18,7 +19,6 @@
 
 .icon {
   color: gray;
-  /* size: 34px; */
   height: 16px;
   width: 16px;
 }
